@@ -1,2 +1,2 @@
 
-Copyright (C) 2021 Arthur
+Copyright (C) 2021 ArthurFerreiraRodrigues
