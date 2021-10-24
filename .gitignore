@@ -2,3 +2,5 @@
 src/main/java/sensitive/
 
 .vscode/
+
+target/classes/sensitive/
