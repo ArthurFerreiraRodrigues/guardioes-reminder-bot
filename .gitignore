@@ -3,4 +3,11 @@ src/main/java/sensitive/
 
 .vscode/
 
-target/classes/sensitive/
+.settings
+
+target/
+
+.classpath
+
+.project
+
