@@ -12,8 +12,7 @@ import net.dv8tion.jda.api.JDABuilder;
 
 import sensitive.Token;
 
-import org.json.JSONObject;
-import java.io.FileWriter;
+import config.Settings;
 
 public class App extends ListenerAdapter {
     private static Date date = new Date();
@@ -24,6 +23,7 @@ public class App extends ListenerAdapter {
 
         JDA jda = JDABuilder.createDefault(token.getToken()).build();
         jda.addEventListener(new MessageEvent());
+        Settings.init();
         calendar = updateTime();
         System.out.println(Calendar.getInstance().getTime().getHours());
     }
