@@ -1,13 +1,9 @@
 
 src/main/java/sensitive/
 
+target/classes/sensitive/
+
 .vscode/
 
 .settings
-
-target/
-
-.classpath
-
-.project
 
