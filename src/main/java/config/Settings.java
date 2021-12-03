@@ -11,15 +11,16 @@ import org.json.simple.*;
 import org.json.simple.parser.*;
 
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.entities.Guild;
 
 public class Settings {
     private Role roleNotify;
-    private Date time;
     private String interval;
     private String prefix;
     private String remindText;
 
+    @SuppressWarnings("unchecked")
     public Settings(String roleNotify, Date date, String interval, String prefix, String remindText, String guildId) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("roleNotify", roleNotify);
@@ -75,13 +76,19 @@ public class Settings {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
 
-                return 36;
+                return '$';
             }
         }
     }
 
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
+    public static void setPrefix(GuildMessageReceivedEvent event, String prefix) {
+        String roleNotify = "@everyone";
+        Date time = Calendar.getInstance().getTime();
+        String interval = "8";
+        String remindText = "Já marcou o Guardiões da Saúde hoje ?";
+        String guildId = event.getGuild().getId();
+
+        new Settings(roleNotify, time, interval, prefix, remindText, guildId);
     }
 
     public String getRemindText() {
@@ -99,13 +106,4 @@ public class Settings {
     public void setRole(Role roleNotify) {
         this.roleNotify = roleNotify;
     }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
 }
